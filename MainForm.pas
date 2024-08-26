@@ -81,6 +81,11 @@ type
     A4Way: TAction;
     A5Way: TAction;
     A6Way: TAction;
+    A7Way: TAction;
+    A8Way: TAction;
+    A9Way: TAction;
+    A10Way: TAction;
+    A11Way: TAction;
     procedure AMultThrdExecute(Sender: TObject);
     procedure A2WayExecute(Sender: TObject);
     procedure AExcudedNazUpdate(Sender: TObject);
@@ -484,6 +489,16 @@ begin
     PFP.MultiGrade:=4;
   if A6Way.Checked then
     PFP.MultiGrade:=5;
+  if A7Way.Checked then
+    PFP.MultiGrade:=6;
+  if A8Way.Checked then
+    PFP.MultiGrade:=7;
+  if A9Way.Checked then
+    PFP.MultiGrade:=8;
+  if A10Way.Checked then
+    PFP.MultiGrade:=9;
+  if A11Way.Checked then
+    PFP.MultiGrade:=10;
 
   FCalcBaseThread:=TCalcBaseThread.Create(True);
   I:=31;
@@ -628,6 +643,11 @@ begin
   A4Way.Checked:=(ProcLogicalCount>4);
   A5Way.Checked:=(ProcLogicalCount>8);
   A6Way.Checked:=(ProcLogicalCount>16);
+  A7Way.Checked:=(ProcLogicalCount>32);
+  A8Way.Checked:=(ProcLogicalCount>64);
+  A9Way.Checked:=(ProcLogicalCount>128);
+  A10Way.Checked:=(ProcLogicalCount>256);
+  A11Way.Checked:=(ProcLogicalCount>512);
 
   NewCalc;
   If ComServer.StartMode=smAutomation Then Exit;
@@ -959,7 +979,6 @@ end;
 
 procedure TMainPFPForm.AAboutExecute(Sender: TObject);
 begin
-//
   With TAboutBox.Create(Self) Do
   try
     ShowModal;

@@ -65,6 +65,8 @@ object MainPFPForm: TMainPFPForm
         Width = 50
       end>
     UseSystemFont = False
+    ExplicitTop = 471
+    ExplicitWidth = 672
   end
   object ActionMainMenuBar1: TActionMainMenuBar
     Left = 0
@@ -86,6 +88,7 @@ object MainPFPForm: TMainPFPForm
     Font.Name = 'Tahoma'
     Font.Style = []
     Spacing = 0
+    ExplicitWidth = 672
   end
   object PC: TPageControl
     Left = 0
@@ -97,6 +100,8 @@ object MainPFPForm: TMainPFPForm
     HotTrack = True
     Style = tsFlatButtons
     TabOrder = 2
+    ExplicitWidth = 672
+    ExplicitHeight = 393
     object tsData: TTabSheet
       Caption = #1048#1089#1093#1086#1076#1085#1099#1077' '#1076#1072#1085#1085#1099#1077
       object Splitter1: TSplitter
@@ -107,8 +112,7 @@ object MainPFPForm: TMainPFPForm
         Cursor = crVSplit
         Align = alTop
         Beveled = True
-        ExplicitTop = 145
-        ExplicitWidth = 676
+        ExplicitTop = 165
       end
       object Panel1: TPanel
         Left = 0
@@ -118,6 +122,8 @@ object MainPFPForm: TMainPFPForm
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitWidth = 664
+        ExplicitHeight = 186
         object Splitter2: TSplitter
           Left = 455
           Top = 0
@@ -136,6 +142,8 @@ object MainPFPForm: TMainPFPForm
           Align = alRight
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitLeft = 454
+          ExplicitHeight = 186
           object Panel6: TPanel
             Left = 183
             Top = 0
@@ -144,6 +152,7 @@ object MainPFPForm: TMainPFPForm
             Align = alRight
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitHeight = 186
             object ActionToolBar1: TActionToolBar
               Left = 0
               Top = 0
@@ -166,6 +175,7 @@ object MainPFPForm: TMainPFPForm
               ParentShowHint = False
               ShowHint = True
               Spacing = 0
+              ExplicitHeight = 186
             end
           end
           object MarLB: TListBox
@@ -176,6 +186,7 @@ object MainPFPForm: TMainPFPForm
             Align = alClient
             ItemHeight = 13
             TabOrder = 1
+            ExplicitHeight = 186
           end
         end
         object Panel8: TPanel
@@ -186,6 +197,8 @@ object MainPFPForm: TMainPFPForm
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 449
+          ExplicitHeight = 186
           object VSG: TStringGrid
             Left = 0
             Top = 0
@@ -198,6 +211,8 @@ object MainPFPForm: TMainPFPForm
             TabOrder = 0
             OnDrawCell = VSGDrawCell
             OnSelectCell = VSGSelectCell
+            ExplicitWidth = 422
+            ExplicitHeight = 186
           end
           object ActionToolBar4: TActionToolBar
             Left = 428
@@ -219,6 +234,8 @@ object MainPFPForm: TMainPFPForm
             Font.Style = []
             ParentFont = False
             Spacing = 0
+            ExplicitLeft = 422
+            ExplicitHeight = 186
           end
         end
       end
@@ -230,15 +247,16 @@ object MainPFPForm: TMainPFPForm
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 1
+        ExplicitWidth = 664
         object Panel3: TPanel
           Left = 0
           Top = 0
-          Width = 676
+          Width = 670
           Height = 65
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitWidth = 670
+          ExplicitWidth = 664
           object Label1: TLabel
             Left = 128
             Top = 12
@@ -298,17 +316,17 @@ object MainPFPForm: TMainPFPForm
         object Panel4: TPanel
           Left = 0
           Top = 65
-          Width = 676
+          Width = 670
           Height = 106
           Align = alClient
           BevelOuter = bvNone
           Caption = 'Panel4'
           TabOrder = 1
-          ExplicitWidth = 670
+          ExplicitWidth = 664
           object CTSG: TStringGrid
             Left = 0
             Top = 0
-            Width = 676
+            Width = 670
             Height = 106
             Align = alClient
             DefaultColWidth = 40
@@ -316,7 +334,7 @@ object MainPFPForm: TMainPFPForm
             RowCount = 3
             Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goAlwaysShowEditor]
             TabOrder = 0
-            ExplicitWidth = 670
+            ExplicitWidth = 664
           end
         end
       end
@@ -339,8 +357,8 @@ object MainPFPForm: TMainPFPForm
           object ScrollBox1: TScrollBox
             Left = 0
             Top = 0
-            Width = 668
-            Height = 324
+            Width = 662
+            Height = 309
             Align = alClient
             BevelInner = bvNone
             BevelOuter = bvNone
@@ -369,9 +387,6 @@ object MainPFPForm: TMainPFPForm
             DefaultColWidth = 45
             DefaultRowHeight = 19
             TabOrder = 0
-            ExplicitTop = 29
-            ExplicitWidth = 668
-            ExplicitHeight = 295
           end
           object ActionToolBar3: TActionToolBar
             Left = 0
@@ -405,7 +420,6 @@ object MainPFPForm: TMainPFPForm
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitWidth = 676
         object Label3: TLabel
           Left = 8
           Top = 8
@@ -416,10 +430,11 @@ object MainPFPForm: TMainPFPForm
         object Bevel3: TBevel
           Left = 0
           Top = 0
-          Width = 676
+          Width = 670
           Height = 29
           Align = alTop
           Shape = bsBottomLine
+          ExplicitWidth = 676
         end
         object PFPCB: TComboBox
           Left = 88
@@ -455,6 +470,7 @@ object MainPFPForm: TMainPFPForm
     Font.Style = []
     ParentFont = False
     Spacing = 0
+    ExplicitWidth = 672
   end
   object SBN: TStatusBar
     Left = 0
@@ -464,6 +480,8 @@ object MainPFPForm: TMainPFPForm
     Panels = <>
     SimplePanel = True
     SizeGrip = False
+    ExplicitTop = 452
+    ExplicitWidth = 672
   end
   object ActionManager1: TActionManager
     ActionBars = <
@@ -576,6 +594,29 @@ object MainPFPForm: TMainPFPForm
                   item
                     Action = A6Way
                     Caption = 'x&32 '#1088#1072#1089#1095#1077#1090
+                    ImageIndex = 7
+                  end
+                  item
+                    Action = A7Way
+                    Caption = 'x&64 '#1088#1072#1089#1095#1077#1090
+                    ImageIndex = 7
+                  end
+                  item
+                    Action = A8Way
+                    ImageIndex = 7
+                  end
+                  item
+                    Action = A9Way
+                    Caption = 'x2&56 '#1088#1072#1089#1095#1077#1090
+                    ImageIndex = 7
+                  end
+                  item
+                    Action = A10Way
+                    ImageIndex = 7
+                  end
+                  item
+                    Action = A11Way
+                    Caption = 'x1&024 '#1088#1072#1089#1095#1077#1090
                     ImageIndex = 7
                   end>
                 Action = AMultThrd
@@ -730,6 +771,51 @@ object MainPFPForm: TMainPFPForm
       Category = '&'#1053#1072#1089#1090#1088#1086#1081#1082#1080
       AutoCheck = True
       Caption = 'x32 '#1088#1072#1089#1095#1077#1090
+      GroupIndex = 2
+      ImageIndex = 7
+      OnExecute = A2WayExecute
+    end
+    object A7Way: TAction
+      Tag = 3
+      Category = '&'#1053#1072#1089#1090#1088#1086#1081#1082#1080
+      AutoCheck = True
+      Caption = 'x64 '#1088#1072#1089#1095#1077#1090
+      GroupIndex = 2
+      ImageIndex = 7
+      OnExecute = A2WayExecute
+    end
+    object A8Way: TAction
+      Tag = 3
+      Category = '&'#1053#1072#1089#1090#1088#1086#1081#1082#1080
+      AutoCheck = True
+      Caption = 'x128 '#1088#1072#1089#1095#1077#1090
+      GroupIndex = 2
+      ImageIndex = 7
+      OnExecute = A2WayExecute
+    end
+    object A9Way: TAction
+      Tag = 3
+      Category = '&'#1053#1072#1089#1090#1088#1086#1081#1082#1080
+      AutoCheck = True
+      Caption = 'x256 '#1088#1072#1089#1095#1077#1090
+      GroupIndex = 2
+      ImageIndex = 7
+      OnExecute = A2WayExecute
+    end
+    object A10Way: TAction
+      Tag = 3
+      Category = '&'#1053#1072#1089#1090#1088#1086#1081#1082#1080
+      AutoCheck = True
+      Caption = 'x512 '#1088#1072#1089#1095#1077#1090
+      GroupIndex = 2
+      ImageIndex = 7
+      OnExecute = A2WayExecute
+    end
+    object A11Way: TAction
+      Tag = 3
+      Category = '&'#1053#1072#1089#1090#1088#1086#1081#1082#1080
+      AutoCheck = True
+      Caption = 'x1024 '#1088#1072#1089#1095#1077#1090
       GroupIndex = 2
       ImageIndex = 7
       OnExecute = A2WayExecute

@@ -1,10 +1,11 @@
-unit CPUTest;
+﻿unit CPUTest;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, TeEngine, Series, ExtCtrls, TeeProcs, Chart;
+  Dialogs, StdCtrls, TeEngine, Series, ExtCtrls, TeeProcs, Chart,
+  VclTee.TeeGDIPlus;
 
 type
 
@@ -36,6 +37,7 @@ var
   ProcLogicalCount: Integer=0;
   ProcHTSupported: Boolean;
 
+  function GetNumberOfProcessors: Integer;
 implementation
 
 uses Registry;
@@ -63,62 +65,12 @@ type
   end;
 
 
-
-function HTSupported: Boolean;
+function GetNumberOfProcessors: Integer;
 var
-  eax_reg: Cardinal;
-  edx_reg: Cardinal;
-  VendId: array[0..3] of AnsiChar;
-asm
-  pushad
-  xor   eax, eax    // call cpuid with eax = 0
-  cpuid        // get vendor id string
-  mov   VendId, ebx
-  popad
-  cmp   VendId, 'uneG'
-  jne   @NotHT
-
-  mov eax, 1
-  cpuid
-  mov eax_reg, eax
-  mov edx_reg, edx
-  mov eax, eax_reg
-  test eax, 0F00h
-  jnz @TestHT
-  test eax, 0F00000h
-  jz @NotHT
-@TestHT:
-  mov edx, edx_reg
-  test edx, 010000000h
-  jz @NotHT
-  mov eax, 1
-  jmp @End1
-@NotHT:
-  xor eax, eax
-@End1:
-end;
-
-function LogicalProcessorsPerPackage: Integer;
-var
-  ebx_reg: Cardinal;
-asm
-{  pushad
-  mov eax, 1
-  cpuid
-  and ebx, 00FF0000h
-  shr ebx,16
-  mov ebx_reg, ebx
-  popad
-  mov eax, ebx_reg}
-  pushad
-  mov eax, $80000008
-  cpuid
-  and ecx, 0000000Fh
-  inc ecx
-  //shr ebx,16
-  mov ebx_reg, ecx
-  popad
-  mov eax, ebx_reg
+   si: TSystemInfo; //Windows.pas
+begin
+   GetSystemInfo({var}si);
+   Result := si.dwNumberOfProcessors;
 end;
 
 { TCalcThread }
@@ -136,9 +88,9 @@ begin
   MaxTimeTest:=PCPer*5; //5 seconds
   MemPR:=1;
   ProcPR:=1;
-  //FA:=nil;
+
   SetLength(FA, 3);
-  //MA:=nil;
+
   SetLength(MA, 1000000);
   SetLength(TVA, 9);
   MD:=0;
@@ -227,11 +179,7 @@ begin
   Label3.Caption:=IntToStr(ProcMemRating)+'+';
   Label7.Caption:=IntToStr(ProcCPURating)+'+';
   Label5.Caption:=IntToStr(ProcLogicalCount);
-  {If ProcHTSupported Then
-    Label7.Caption:='Да'
-  Else
-    Label7.Caption:='Нет';
-   }
+
   Label3.Visible:=True;
   Label5.Visible:=True;
   Label7.Visible:=True;
@@ -335,12 +283,10 @@ end;
 initialization
   ReadPRFromRegistry;
   try
-    ProcLogicalCount:=LogicalProcessorsPerPackage;
+    ProcLogicalCount:=GetNumberOfProcessors;
   except end;
   If ProcLogicalCount=0 Then ProcLogicalCount:=1;
-  try
-    ProcHTSupported:=HTSupported;
-  except end;
+
 finalization
   WritePRToRegistry;
 

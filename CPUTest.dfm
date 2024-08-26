@@ -11,31 +11,34 @@ object ProcTestForm: TProcTestForm
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
-  OldCreateOrder = False
   OnActivate = FormActivate
-  PixelsPerInch = 96
   TextHeight = 13
   object Chart1: TChart
     Left = 0
     Top = 89
     Width = 368
     Height = 186
-    BackWall.Brush.Color = clWhite
     BackWall.Brush.Style = bsClear
     Legend.Visible = False
     Title.Text.Strings = (
-      #1055#1088#1086#1080#1079#1074#1086#1076#1080#1090#1077#1083#1100#1085#1086#1089#1090#1100)
+      #1055#1088#1086#1080#1079#1074#1086#1076#1080#1090#1077#1083#1100#1085#1086#1089#1090#1100' (per core)')
     View3D = False
     Zoom.Allow = False
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 362
+    ExplicitHeight = 177
+    DefaultCanvas = 'TGDIPlusCanvas'
+    PrintMargins = (
+      15
+      27
+      15
+      27)
+    ColorPaletteIndex = 13
     object Series1: TBarSeries
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = clBlack
-      Marks.Callout.Arrow.Visible = True
-      Marks.Visible = True
+      HoverElement = []
+      Legend.Visible = False
       ShowInLegend = False
-      Gradient.Direction = gdTopBottom
       SideMargins = False
       XValues.Name = 'X'
       XValues.Order = loAscending
@@ -43,12 +46,10 @@ object ProcTestForm: TProcTestForm
       YValues.Order = loNone
     end
     object Series2: TBarSeries
-      Marks.Arrow.Visible = True
-      Marks.Callout.Brush.Color = clBlack
-      Marks.Callout.Arrow.Visible = True
+      HoverElement = []
+      Legend.Visible = False
       Marks.Visible = False
       ShowInLegend = False
-      Gradient.Direction = gdTopBottom
       SideMargins = False
       XValues.Name = 'X'
       XValues.Order = loAscending
@@ -63,6 +64,7 @@ object ProcTestForm: TProcTestForm
     Height = 89
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 362
     object Label4: TLabel
       Left = 8
       Top = 67
