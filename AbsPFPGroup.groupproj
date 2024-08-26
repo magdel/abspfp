@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{19AFA21D-EE41-4447-9428-84AB2841C8AC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="AbsPFP.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AbsPFP">
+        <MSBuild Projects="AbsPFP.dproj"/>
+    </Target>
+    <Target Name="AbsPFP:Clean">
+        <MSBuild Projects="AbsPFP.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AbsPFP:Make">
+        <MSBuild Projects="AbsPFP.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AbsPFP"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AbsPFP:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AbsPFP:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
