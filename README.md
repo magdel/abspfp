@@ -8,6 +8,9 @@
 
 ![Пример главного окна приложения](images/app_main_form.png)
 
+После расчета получаем результат в графическом виде, их можно скопировать кликом правой кнопки мыши. Показатели можно экспортировать в Excel. 
+![Результат расчета](images/app_main_form_results.png)
+
 ### Releases
 
 For direct downloads, check out [Releases](../../releases).
