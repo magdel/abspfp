@@ -277,7 +277,7 @@ begin
   CTSG.Cells[7, 2]:='6';
   CTSG.Cells[8, 2]:='7';
   For C:=1 To 12 Do
-  CTSG.Cells[C,2]:='';
+     CTSG.Cells[C,2]:='';
 
   VSG.Cells[2, 1]:='50';
   VSG.Cells[3, 1]:='150';
@@ -463,8 +463,7 @@ begin
     For C:=1 To SEST.Value Do
       If C<>R Then
       begin
-
-        If Trim(VSG.Cells[C, R])='' Then
+        If (Trim(VSG.Cells[C, R])='') or (Trim(VSG.Cells[C, R])='0') Then
         if VSG.Objects[C, R]=nil then Continue;
         If Trim(VSG.Cells[C, R])='' Then
         VS.VanCount:=0 Else
