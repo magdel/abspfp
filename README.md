@@ -26,6 +26,12 @@
 После расчета получаем результат в графическом виде, их можно скопировать кликом правой кнопки мыши. Показатели можно экспортировать в Excel. 
 ![Результат расчета](images/app_main_form_results.png)
 
+### Code
+
+This is Delphi application with Assembler inline code, compiled conditionally. 2x speed up is archived when Assembler rewritten code is used. 
+May be used as example for using Assembler wuth Deplhi. 
+Assembler code (and other Deplhi code) is for 32-bit environment.
+
 ### Releases
 
 For direct downloads, check out [Releases](../../releases).
