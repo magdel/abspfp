@@ -29,7 +29,8 @@
 ### Code
 
 This is Delphi application with Assembler inline code, compiled conditionally. 2x speed up is archived when Assembler rewritten code is used. 
-May be used as example for using Assembler wuth Deplhi. 
+May be used as example for using Assembler wuth Deplhi. Conditional ASMALGN is enabling usage of assembler code. 
+
 Assembler code (and other Deplhi code) is for 32-bit environment.
 
 ### Releases
