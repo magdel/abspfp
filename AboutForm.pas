@@ -37,15 +37,12 @@ type
     procedure FormShow(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure Label7MouseMove(Sender: TObject; Shift: TShiftState; X,
-      Y: Integer);
   private
     { Private declarations }
     FBmp: TBitmap;
     FXP1: Integer;
     FActive1, FActive2: Boolean;
     FS: Integer;
-//    FAniThread:TAniThread;
   public
     { Public declarations }
   end;
@@ -77,7 +74,6 @@ begin
         sR.Right:=W*20+FS+4;
 
         Canvas.CopyRect(sR, FBmp.Canvas, sR);
-
       end;
 
   Inc(FS, 2);
@@ -86,23 +82,7 @@ begin
       FBmp.Free;
       AniTimer.Enabled:=False;
       Panel1.Visible:=True;
-   //   FAniThread.Resume;
     end;
-{
-  If FXP1>FBmp.Width div 2 Then
-    begin
-      FBmp.Free;
-      AniTimer.Enabled:=False;
-      Panel1.Visible:=True;
-      Timer1.Enabled:=True;
-    end
-   Else
-    begin
-      Canvas.CopyRect(Rect(FBmp.Width div 2 +FXP1,0,FBmp.Width div 2 +FXP1+10,FBmp.Height),FBmp.Canvas,
-                      Rect(FBmp.Width div 2 +FXP1,0,FBmp.Width div 2 +FXP1+10,FBmp.Height));
-      Canvas.CopyRect(Rect(FXP1,0,FXP1+10,FBmp.Height),FBmp.Canvas,Rect(FXP1,0,FXP1+10,FBmp.Height));
-      Inc(FXP1,10);
-    end;}
 end;
 
 procedure TAboutBox.FormShow(Sender: TObject);
@@ -127,7 +107,6 @@ end;
 
 procedure TAboutBox.FormDestroy(Sender: TObject);
 begin
-//  FAniThread.Terminate;
   AniTimer.Enabled:=False;
 end;
 
@@ -148,7 +127,6 @@ begin
   sR.Top:=0;
   sR.Bottom:=89;
   If Terminated Then Exit;
- // FAboutBox.ProgramIco_.Canvas.CopyRect(FAboutBox.ProgramIco_.BoundsRect,FAniBmp.Canvas,sR);
   FAboutBox.ProgramIco_.Canvas.Draw(-FFrmN*121, 0, FAniBmp);
   Inc(FFrmN);
   If FFrmN=33 Then FFrmN:=0;
@@ -172,14 +150,6 @@ begin
       If Terminated Then Exit;
       Synchronize(Draw);
     end;
-end;
-
-procedure TAboutBox.Label7MouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
-begin
-//  Label7.Font.Color:=clAqua;
-//  Timer1.Enabled:=True;
-//  FActive3:=True;
 end;
 
 end.

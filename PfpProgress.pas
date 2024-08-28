@@ -49,10 +49,9 @@ begin
           begin
              With Series1 do
               Begin
-                //RecalcOptions :=[rOnModify,rOnModify];
                 Clear;
                for I := 0 to MainPFPForm.CalcBaseThread.BasePFP.ThrdList.Count - 1 do
-                Add(0, IntToStr(I+1));//, clRed);
+                Add(0, IntToStr(I+1));
 
               end;
             PrChart.BottomAxis.AutomaticMaximum:=False;
@@ -74,12 +73,10 @@ begin
          PrChart.ReCalcWidthHeight;
 
          PrChart.Repaint;
-         //ZoomPercent(99);
-        // MandatoryValueList.Scroll;
     end;
     try
       Spd:=VD/((Now-FStDT)*24*60*60); //вар/c
-      TL:=VDL/(Spd*(24*60*60)); //- (FStDT-Now);
+      TL:=VDL/(Spd*(24*60*60));
       If TL>1 Then
         Caption:=FormatFloat('0', Spd)+' вар/с - '+FormatDateTime('h:nn:ss', Now-FStDT)+' ('+IntToStr(Trunc(TL))+' дн. '+FormatDateTime('h:nn:ss', Frac(TL))+')'
       Else

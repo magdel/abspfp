@@ -33,6 +33,8 @@ May be used as example for using Assembler wuth Deplhi. Conditional ASMALGN is e
 
 Assembler code (and other Deplhi code) is for 32-bit environment.
 
+To build application use Delphi CE 11.3. Open project file and then Build in Project.
+
 ### Releases
 
 For direct downloads, check out [Releases](../../releases).

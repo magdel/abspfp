@@ -195,11 +195,11 @@ implementation
 uses Math;
 
 const
-  MAXPFPVALUE=10E100;
+  MAXPFPVALUE:Double = 10E100;
 
 {$DEFINE ASMALGN}
 
-{$DEFINE SAVETREE1}
+//{$DEFINE SAVETREE}
 
 {$IFDEF SAVETREE}
 var
@@ -233,7 +233,7 @@ end;
 
 procedure ReadObjStructFromStream(AStream: TStream; var AStruct; StrucSize: Integer); //читает из потока в структуру
 Var
-  N: Integer; //SOffs:Integer;
+  N: Integer;
   MS: TMemoryStream;
   P: Pointer;
 begin
@@ -243,10 +243,9 @@ begin
     MS.CopyFrom(AStream, N); //copying contents
     MS.Position:=0;
     MS.Read(N, SizeOf(N)); //size of structure
-  //SOffs:=0;
     P:=@AStruct;
     If N>StrucSize Then
-    begin{SOffs:=N-StrucSize;} N:=StrucSize;
+    begin N:=StrucSize;
     End;
     MS.Read(P^, N); //MS.Position:=MS.Position+SOffs;
   finally
@@ -339,8 +338,6 @@ end;
 function TAbsPFPSolve.Clone: TAbsPFPSolve;
 begin
   Result:=TAbsPFPSolve.Create;
-  //Result.FSt:=FSt;
-  //Result.FTr:=FTr;
   Result.FMultThrd:=False;
   Result.CmA:=CmA;
   Result.TekA:=TekA;
@@ -349,8 +346,7 @@ begin
   Result.FVS:=FVS;
   SetLength(Result.FVS, High(Result.FVS)+1);
   Result.FMars:=FMars;
-  //Result.FMinTrI:=FMinTrI;
-  Result.MaxN:=MaxN;
+   Result.MaxN:=MaxN;
   Result.MaxPer:=MaxPer;
   Result.InitStTr;
 end;
@@ -1059,29 +1055,22 @@ begin
         MinTVByT:=0;
         Break;
       end;
-      //Else If Integer(pTr^.StNz)<=High(FSt) Then
+
       TempTV:=FSt[pTr^.StNz].Tek;
-      //Else
-      //  Continue;
+
       FSt[pTr^.StNz].CurrPer:=FSt[pTr^.StNz].CurrPer+FVS[I].VanCount;
       MT:=T;
       If (TempTV>=MinTVByT)or(FSt[pTr^.StNz].CurrPer>FSt[pTr^.StNz].MaxPer) Then
       begin
-        //FSt[pTr^.StNz].CurrPer:=FSt[pTr^.StNz].CurrPer-FVS[I].VanCount;
         Continue;
       end;
 
-      //If Integer(pTr^.StNz)<=High(FSt) Then
+
       STV:=TVFromCount(@FVS[I], @FSt[pTr^.StNz], TM, TPos+1);
-      //Else
-       // Continue;
-//      Else
-//        Continue;
 
       If TempTV+STV<MinTVByT Then
       begin
         MinTVByT:=TempTV+STV;
-        //SetLength(TM,TPos+1);
         TM[TPos]:=pTr;
         TMR:=TM;
         TrI:=T;
@@ -1246,8 +1235,6 @@ begin
       TCalcThread(ThrdList[I]).PFP.FTerminated:=True;
     except end;
   end
-  //Else
-  //  FTerminated:=True;
 end;
 
 function TAbsPFPSolve.MergePFP(const PFPS: array of TPFPArray): TPFPArray;
@@ -1500,31 +1487,23 @@ begin
       TM[TPos]:=pTr;
       Result:=0; Exit;
     end;
-    //Else If Integer(pTr^.StNz)<=High(FSt) Then
     TempTV:=FSt[pTr^.StNz].Tek;
-   // Else
-   //   Continue;
+
     If TempTV>=Result Then Continue;
 
     MT:=T;
     FSt[pTr^.StNz].CurrPer:=FSt[pTr^.StNz].CurrPer+V^.VanCount;
 
-    //If Integer(pTr^.StNz)<=High(FSt) Then
     If (FSt[pTr^.StNz].CurrPer>FSt[pTr^.StNz].MaxPer) Then
     begin
-      //FSt[pTr^.StNz].CurrPer:=FSt[pTr^.StNz].CurrPer-V^.VanCount;
       Continue;
-    end;                
+    end;
 
-    //If Integer(pTr^.StNz)<=High(FSt) Then
     STV:=TVFromCount(V, @FSt[pTr^.StNz], TM, TPos+1);
-   // Else
-     // Continue;
 
     If TempTV+STV<Result Then
     begin
       Result:=TempTV+STV;
-      //SetLength(TM,TPos+1);
       TM[TPos]:=pTr;
       TMR:=TM;
       TrI:=T;

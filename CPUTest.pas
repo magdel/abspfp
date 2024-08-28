@@ -67,9 +67,9 @@ type
 
 function GetNumberOfProcessors: Integer;
 var
-   si: TSystemInfo; //Windows.pas
+   si: TSystemInfo;
 begin
-   GetSystemInfo({var}si);
+   GetSystemInfo(si);
    Result := si.dwNumberOfProcessors;
 end;
 
