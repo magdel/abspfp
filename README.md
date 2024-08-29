@@ -1,6 +1,9 @@
 # abspfp
 Расчет плана формирования поездов методом абсолютного (полного) перебора
 
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/magdel/abspfp/blob/main/LICENSE.txt)
+[![Hits-of-Code](https://hitsofcode.com/github/magdel/abspfp?branch=main&label=Hits-of-Code)](https://hitsofcode.com/github/magdel/abspfp/view?branch=main&label=Hits-of-Code)
+
 ## Idea
 
 Для расчета лучшего варианта по критерию вагоночасы делается построение всех возможных вариантов вагонопотоков и их оценка.
