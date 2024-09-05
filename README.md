@@ -26,13 +26,13 @@
 
 ![Пример главного окна приложения](images/app_main_form.png)
 
-После расчета получаем результат в графическом виде, их можно скопировать кликом правой кнопки мыши. Показатели можно экспортировать в Excel. 
+После расчета получаем результат в графическом виде, его можно скопировать кликом правой кнопки мыши. Показатели можно экспортировать в Excel. 
 ![Результат расчета](images/app_main_form_results.png)
 
 ### Code
 
-This is Delphi application with Assembler inline code, compiled conditionally. 2x speed up is archived when Assembler rewritten code is used. 
-May be used as example for using Assembler wuth Deplhi. Conditional ASMALGN is enabling usage of assembler code. 
+This is Delphi application with Assembler inline code compiled conditionally. 2x speed up when Assembler rewritten code is used. 
+May be used as example of Assembler with Deplhi. Conditional ASMALGN is enabling usage of assembler code. 
 
 Assembler code (and other Deplhi code) is for 32-bit environment.
 
@@ -44,7 +44,7 @@ For direct downloads, check out [Releases](../../releases).
 
 ## Contributing
 
-For simple bug reports and fixes, and feature requests, please simply use projects
+For simple bug reports and fixes, and feature requests, please simply use project's
 [Issue Tracker](../../issues)
 
 
